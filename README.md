@@ -2,6 +2,8 @@
 
 Send __HTTP Status Code__ and __Screenshot__ on a Discord server.
 
+> Developed and tested on NodeJS _18.8.0_ (and _npm 8.18.0_)
+
 #### Install
 Run :
 ```bash
