@@ -1,4 +1,4 @@
-# Discord Bit Site Checker
+# Discord Bot Site Checker
 
 Send __HTTP Status Code__ and __Screenshot__ on a Discord server.
 
