@@ -4,6 +4,7 @@ set-up:
 	touch config/token.txt
 	touch config/url.txt
 	touch config/channel.txt
+	npm install
 
 	@echo "\n-----------------------"
 	@echo "Play : echo YOUR_TOKEN > config/token.txt"
