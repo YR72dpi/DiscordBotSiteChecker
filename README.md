@@ -2,9 +2,9 @@
 
 Send __HTTP Status Code__ and __Screenshot__ on a Discord server.
 
-> Developed and tested on NodeJS _18.8.0_ (and _npm 8.18.0_)
+> Developed and tested on NodeJS _18.8.0_ (and _NPM 8.18.0_)
 
-#### Install
+### Install
 Run :
 ```bash
 make install
@@ -19,3 +19,7 @@ And run :
 ```bash
 make check
 ```
+### Dependencies
+- axios ^1.3.2,
+- discord.js ^14.7.1
+- puppeteer ^19.6.3
