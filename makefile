@@ -1,4 +1,4 @@
-set-up:
+install:
 	mkdir -p screenshot
 	mkdir -p config
 	touch config/token.txt
@@ -12,5 +12,5 @@ set-up:
 	@echo "Play : echo YOUR_CHANNEL_NAME > config/channel.txt"
 	@echo "----------------------- \n"
 
-check-it:
+check:
 	node index.js

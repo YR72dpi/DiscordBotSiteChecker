@@ -5,8 +5,7 @@ Send __HTTP Status Code__ and __Screenshot__ on a Discord server.
 #### Install
 Run :
 ```bash
-make set-up
-npm install
+make install
 ```
 
 And set up :
@@ -16,5 +15,5 @@ And set up :
 
 And run :
 ```bash
-make check-it
+make check
 ```
