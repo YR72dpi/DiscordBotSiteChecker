@@ -4,30 +4,29 @@ import * as fs from 'node:fs';
 import axios from 'axios';
 
 process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 1;
-
+const TOKEN = String(fs.readFileSync("config/token.txt")).replace(" ", "")
+const URL = String(fs.readFileSync("config/url.txt"))
+const CHANNEL = String(fs.readFileSync("config/channel.txt"))
 const client = new Client({
     intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent]
 })
-
-const URL = "http://www.ylanrousselle.fr/";
-var discordMessage = " === Reporting for " + URL + " === \n"
 
 if (!fs.existsSync("screenshot")) {
     fs.mkdirSync("screenshot")
 }
 
 client.on("ready", async () => {
-    console.log("Discord bot ready")
-
-
+    console.log("Discord Bot Ready")
     await axios.get(URL).then(async (resp) => {
         let discordMessageStatus = "Status Code : " + String(resp.status)
         console.log(resp.status)
         if (resp.status == 200) {
-            const channelId = client.channels.cache.find(channel => channel.name == "portfolio-care").id
+            const channelId = client.channels.cache.find(channel => channel.name == CHANNEL).id
             await screenshot(URL).then((image) => {
+                let discordMessageHeader = " === Reporting for " + URL + " === \n"
+
                 client.channels.cache.get(channelId).send({
-                    content: discordMessage + discordMessageStatus,
+                    content: discordMessageHeader + discordMessageStatus,
                     files: [
                         {
                             attachment: "./" + image
@@ -44,4 +43,4 @@ client.on("ready", async () => {
 })
 
 
-client.login("MTA3MjI1ODA0ODY2OTc4NjEzMg.Gt2u6g.LmpsvkWBINsafsUsT_MlogkloiCwwyD4jdLPG0")
+client.login(TOKEN)
